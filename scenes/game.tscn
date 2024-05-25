@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://t8chrtcfmhmd"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_d332n"]
+[ext_resource type="PackedScene" uid="uid://mgbdltlgdiiu" path="res://scenes/ui/main_menu.tscn" id="3_t8fld"]
+[ext_resource type="PackedScene" uid="uid://gbltcyjqb7jj" path="res://scenes/ui/run_failed_menu.tscn" id="4_yvkmu"]
+[ext_resource type="PackedScene" uid="uid://dbslp3amtqpey" path="res://scenes/ui/hud.tscn" id="5_0wdp1"]
+[ext_resource type="PackedScene" uid="uid://my8bb6mhwp1t" path="res://scenes/ui/run_won_menu.tscn" id="5_68xcf"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_d332n")
+
+[node name="Ui" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="Ui" instance=ExtResource("3_t8fld")]
+
+[node name="RunFailedMenu" parent="Ui" instance=ExtResource("4_yvkmu")]
+visible = false
+
+[node name="RunWonMenu" parent="Ui" instance=ExtResource("5_68xcf")]
+visible = false
+
+[node name="HUD" parent="Ui" instance=ExtResource("5_0wdp1")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="quiited" from="Ui/MainMenu" to="." method="_on_main_menu_quiited"]
+[connection signal="run_started" from="Ui/MainMenu" to="." method="_on_main_menu_run_started"]
+[connection signal="main_menu" from="Ui/RunFailedMenu" to="." method="_on_run_failed_menu_main_menu"]
+[connection signal="main_menu" from="Ui/RunWonMenu" to="." method="_on_run_won_menu_main_menu"]
+[connection signal="run_stopped" from="Ui/HUD" to="." method="_on_hud_run_stopped"]
