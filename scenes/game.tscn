@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://t8chrtcfmhmd"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_d332n"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_d332n")
+
+[node name="PlayerRespawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="PlayerRespawnTimer" to="." method="_on_player_respawn_timer_timeout"]

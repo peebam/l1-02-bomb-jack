@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbslp3amtqpey"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_7elkl"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7elkl")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 0
+offset_left = 249.0
+offset_top = 10.0
+offset_right = 311.0
+offset_bottom = 78.0
+
+[node name="ScoreLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Score"
+horizontal_alignment = 1
+
+[node name="ScoreValueLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0000"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="GridContainer"]
+layout_mode = 2
+
+[node name="LivesLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lives"
+horizontal_alignment = 1
+
+[node name="LivesNumberLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
